@@ -30,9 +30,9 @@
 
 
 	btDefaultMotionState* fallMotionState =
-	      new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 50, 0)));
+        new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 50, 0)));
 	btScalar mass = 1;
-	btVector3 fallInertia(0, 0, 0);
+  btVector3 fallInertia(2, 1, 2);
 	fallShape->calculateLocalInertia(mass, fallInertia);
 	btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
 	btRigidBody* fallRigidBody = new btRigidBody(fallRigidBodyCI);
@@ -46,8 +46,10 @@
     btTransform trans;
     fallRigidBody->getMotionState()->getWorldTransform(trans);
 
-		std::cout << "sphere height: " << trans.getOrigin().getY() << std::endl;
-	}
+    //std::cout << "sphere height: " << trans.getOrigin().getY() << std::endl;
+		
+    std::cout<<trans.getOrigin().getX()<<' '<<trans.getOrigin().getY()<<' ' <<trans.getOrigin().getZ()<<'\n';
+  }
 
 	dynamicsWorld->removeRigidBody(fallRigidBody);
 	delete fallRigidBody->getMotionState();
