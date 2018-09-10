@@ -1,6 +1,6 @@
 	#include <iostream>
 
-	#include <btBulletDynamicsCommon.h>
+  #include <btBulletDynamicsCommon.h>
 
 	int main ()
 	{
