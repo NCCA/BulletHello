@@ -11,8 +11,8 @@ isEqual(QT_MAJOR_VERSION, 5) {
 	cache()
 	DEFINES +=QT5BUILD
 }
-INCLUDEPATH+=/usr/local/include/bullet
-LIBS+= -L/usr/local/lib -lBulletDynamics  -lBulletCollision  -lLinearMath
+QMAKE_CXXFLAGS+=$$system(pkg-config --cflags bullet)
+LIBS+= $$system(pkg-config --libs bullet) 
 # where to put moc auto generated files
 MOC_DIR=moc
 # on a mac we don't create a .app bundle file ( for ease of multiplatform use)
