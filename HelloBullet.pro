@@ -4,10 +4,11 @@ TARGET=HelloBullet
 OBJECTS_DIR=obj
 # core Qt Libs to use add more here if needed.
 QT+=gui opengl core
-CONFIG+=c++1z
+
 cache()
-QMAKE_CXXFLAGS+= $$system(pkg-config --cflags bullet)
-LIBS+= $$system(pkg-config --libs bullet)
+
+QMAKE_CXXFLAGS+=$$system(pkg-config --cflags bullet)
+LIBS+= $$system(pkg-config --libs bullet) 
 # where to put moc auto generated files
 MOC_DIR=moc
 # on a mac we don't create a .app bundle file ( for ease of multiplatform use)
